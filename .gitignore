@@ -1,4 +1,4 @@
-# Ignore everything in this directory
-*
+# Keep any *.yml files
+!**/*.yml
 # Except this file
 !.gitignore
