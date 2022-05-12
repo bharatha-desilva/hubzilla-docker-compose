@@ -1,0 +1,27 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+  hubzilla_app:
+    image: docker.io/library/hubzilla-app:test01
+    container_name: hubzilla_app
+    volumes:
+      - ./volumes/app/store:/var/www/html/store
+    ports:
+      - 80:80
+    depends_on:
+      - hubzilla_db
+
+  hubzilla_db:
+    image: postgres
+    container_name: hubzilla_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: changeit
+      POSTGRES_DB: postgres
+    volumes:
+      - ./volumes/db/data:/var/lib/postgresql/data
+      - ./volumes/db/initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
