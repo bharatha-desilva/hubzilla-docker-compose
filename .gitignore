@@ -1,3 +1,4 @@
+**/*
 # Keep any *.yml files
 !**/*.yml
 # Except this file

@@ -1,9 +1,8 @@
-# Use postgres/example user/password credentials
 version: '3.1'
 
 services:
   hubzilla_app:
-    image: docker.io/library/hubzilla-app:test01
+    image: docker.io/library/hubzilla-app:test02
     container_name: hubzilla_app
     volumes:
       - ./volumes/app/store:/var/www/html/store
